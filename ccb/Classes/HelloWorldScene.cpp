@@ -1,5 +1,6 @@
 #include "HelloWorldScene.h"
 #include "SimpleAudioEngine.h"
+#include "CCBReader.h"
 
 using namespace cocos2d;
 using namespace CocosDenshion;
@@ -70,6 +71,11 @@ bool HelloWorld::init()
 
 	// add the sprite as a child to this layer
 	this->addChild(pSprite, 0);
+    
+    //For test only
+    //========================================================
+    CCBReader::nodeGraphFromFile("example.plist");
+    //========================================================
 	
 	return true;
 }

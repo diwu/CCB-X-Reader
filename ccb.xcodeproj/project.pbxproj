@@ -140,6 +140,8 @@
 		1031F0FB154901E50058F1A0 /* RootViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1031F0FA154901E50058F1A0 /* RootViewController.mm */; };
 		1031F0FF154901E50058F1A0 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1031F0FE154901E50058F1A0 /* AppDelegate.cpp */; };
 		1031F102154901E50058F1A0 /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1031F101154901E50058F1A0 /* HelloWorldScene.cpp */; };
+		1031F10E15490EFB0058F1A0 /* CCBReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1031F10D15490EFB0058F1A0 /* CCBReader.cpp */; };
+		1031F117154925D50058F1A0 /* example.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1031F116154925D50058F1A0 /* example.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -421,6 +423,9 @@
 		1031F0FE154901E50058F1A0 /* AppDelegate.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = AppDelegate.cpp; path = Classes/AppDelegate.cpp; sourceTree = "<group>"; };
 		1031F100154901E50058F1A0 /* HelloWorldScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HelloWorldScene.h; path = Classes/HelloWorldScene.h; sourceTree = "<group>"; };
 		1031F101154901E50058F1A0 /* HelloWorldScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = HelloWorldScene.cpp; path = Classes/HelloWorldScene.cpp; sourceTree = "<group>"; };
+		1031F10C15490EE30058F1A0 /* CCBReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CCBReader.h; path = Classes/CCBReader.h; sourceTree = "<group>"; };
+		1031F10D15490EFB0058F1A0 /* CCBReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CCBReader.cpp; path = Classes/CCBReader.cpp; sourceTree = "<group>"; };
+		1031F116154925D50058F1A0 /* example.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = example.plist; path = Resources/example.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -489,6 +494,7 @@
 		1031EF57154901E30058F1A0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1031F116154925D50058F1A0 /* example.plist */,
 				1031EF58154901E30058F1A0 /* CloseNormal.png */,
 				1031EF5A154901E30058F1A0 /* CloseSelected.png */,
 				1031EF5C154901E30058F1A0 /* Default.png */,
@@ -1018,6 +1024,8 @@
 				1031F0FE154901E50058F1A0 /* AppDelegate.cpp */,
 				1031F100154901E50058F1A0 /* HelloWorldScene.h */,
 				1031F101154901E50058F1A0 /* HelloWorldScene.cpp */,
+				1031F10C15490EE30058F1A0 /* CCBReader.h */,
+				1031F10D15490EFB0058F1A0 /* CCBReader.cpp */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -1083,6 +1091,7 @@
 				1031EF69154901E30058F1A0 /* Icon.png in Resources */,
 				1031EF6B154901E30058F1A0 /* Icon@2x.png in Resources */,
 				1031EF6E154901E30058F1A0 /* iTunesArtwork in Resources */,
+				1031F117154925D50058F1A0 /* example.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1207,6 +1216,7 @@
 				1031F0FB154901E50058F1A0 /* RootViewController.mm in Sources */,
 				1031F0FF154901E50058F1A0 /* AppDelegate.cpp in Sources */,
 				1031F102154901E50058F1A0 /* HelloWorldScene.cpp in Sources */,
+				1031F10E15490EFB0058F1A0 /* CCBReader.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
