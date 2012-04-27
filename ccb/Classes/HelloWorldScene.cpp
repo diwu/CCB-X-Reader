@@ -74,7 +74,8 @@ bool HelloWorld::init()
     
     //For test only
     //========================================================
-    CCBReader::sceneWithNodeGraphFromFile("example.plist");
+    CCScene *newScene = CCBReader::sceneWithNodeGraphFromFile("example.plist");
+    //CCDirector::sharedDirector()->replaceScene(newScene);
     //========================================================
 	
 	return true;

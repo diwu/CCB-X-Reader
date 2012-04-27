@@ -10,6 +10,7 @@
 
 #include "cocos2d.h"
 #include "HelloWorldScene.h"
+#include "CCBReader.h"
 
 USING_NS_CC;
 
@@ -89,11 +90,15 @@ bool AppDelegate::applicationDidFinishLaunching()
 	// set FPS. the default value is 1.0/60 if you don't call this
 	pDirector->setAnimationInterval(1.0 / 60);
 
+    /*
 	// create a scene. it's an autorelease object
 	CCScene *pScene = HelloWorld::scene();
 
 	// run
 	pDirector->runWithScene(pScene);
+     */
+    CCScene *pScene = CCBReader::sceneWithNodeGraphFromFile("example.plist");
+    pDirector->runWithScene(pScene);
 
 	return true;
 }

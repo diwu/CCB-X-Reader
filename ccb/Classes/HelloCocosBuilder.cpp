@@ -36,3 +36,9 @@
 */
 
 #include "HelloCocosBuilder.h"
+
+using namespace cocos2d;
+
+void HelloCocosBuilder::pressedButton(CCObject *pSender) {
+    CCMessageBox("pressedButton call back", "Yes!");
+}

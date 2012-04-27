@@ -15,6 +15,7 @@ class CCBClassGenerator {
     
 public:
     static cocos2d::CCLayer * createCustomCCLayerClassWithName (const char * classNameCString);
+    static cocos2d::SEL_MenuHandler createCustomSelectorWithName (const char * selectorNameCString);
 };
 
 #endif

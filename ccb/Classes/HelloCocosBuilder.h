@@ -30,6 +30,8 @@
 
 class HelloCocosBuilder : public cocos2d::CCLayer {
         
+public:
+    void pressedButton(CCObject *pSender);
 };
 
 #endif

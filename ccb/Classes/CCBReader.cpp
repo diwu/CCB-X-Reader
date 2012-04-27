@@ -122,8 +122,10 @@ cocos2d::CCNode * CCBReader::ccObjectFromDictionaryExtraPropsAssetsDirOwnerRoot(
         CCBReader::setPropsForParticleSystemPropsExtraProps((CCParticleSystem *)node, props, extraProps);
         
     }
-    else if (strcmp(classCString, "CCMenuItemImage") == 0) {
+    else if (strcmp(classCString, "CCMenuItemImage") == 0)
     {
+        CCLog("is processing CCMenuItemImage...");
+
         string spriteFileNormal = path + (((CCString*) (props->objectForKey("spriteFileNormal"))) -> toStdString()).c_str();
         //NSString* spriteFileNormal = [NSString stringWithFormat:@"%@%@", path, [props objectForKey:@"spriteFileNormal"]];
         string spriteFileSelected = path + (((CCString*) (props->objectForKey("spriteFileSelected"))) -> toStdString()).c_str();
@@ -135,16 +137,19 @@ cocos2d::CCNode * CCBReader::ccObjectFromDictionaryExtraPropsAssetsDirOwnerRoot(
         CCSprite* spriteSelected;
         CCSprite* spriteDisabled;
         
-        string spriteSheetFile = ((CCString*) (props->objectForKey("spriteFramesFile"))) -> toStdString();
+        string spriteSheetFile;
+        if (props->objectForKey("spriteFramesFile") != NULL) {
+            spriteSheetFile = ((CCString*) (props->objectForKey("spriteFramesFile"))) -> toStdString();
+        }
         //NSString* spriteSheetFile = [props objectForKey:@"spriteFramesFile"];
         
-        if ( spriteSheetFile.empty() && strcmp(spriteSheetFile.c_str(), "") != 0) {
+        if ( ! spriteSheetFile.empty() && strcmp(spriteSheetFile.c_str(), "") != 0) {
         //if (spriteSheetFile  && ![spriteSheetFile isEqualToString:@""]) {
             spriteSheetFile = path + spriteSheetFile;
             //spriteSheetFile = [NSString stringWithFormat:@"%@%@", path, spriteSheetFile];
         }
         
-        if ( spriteSheetFile.empty() && strcmp(spriteSheetFile.c_str(), "") != 0) {
+        if ( ! spriteSheetFile.empty() && strcmp(spriteSheetFile.c_str(), "") != 0) {
         //if (spriteSheetFile && ![spriteSheetFile isEqualToString:@""]) {
             
             CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile(spriteSheetFile.c_str());
@@ -185,22 +190,29 @@ cocos2d::CCNode * CCBReader::ccObjectFromDictionaryExtraPropsAssetsDirOwnerRoot(
         if (!spriteDisabled) spriteDisabled = CCSprite::spriteWithFile("missing-texture.png");
         //if (!spriteDisabled) spriteDisabled = [CCSprite spriteWithFile:@"missing-texture.png"];
 
-        /*
-        NSObject* target = NULL;
-        SEL selector = NULL;
+        CCObject* target = NULL;
+        //NSObject* target = NULL;
+        SEL_MenuHandler selector = NULL;
+        //SEL selector = NULL;
+
         if (!extraProps)
         {
-            int targetType = [[props objectForKey:@"target"] intValue];
+            int targetType = atoi((((CCString*) (props->objectForKey("target"))) -> toStdString()).c_str());
+            //int targetType = [[props objectForKey:@"target"] intValue];
+            
             if (targetType == kCCBMemberVarAssignmentTypeDocumentRoot) target = root;
             else if (targetType == kCCBMemberVarAssignmentTypeOwner) target = owner;
-            
-            NSString* selectorName = [props objectForKey:@"selector"];
-            if (selectorName && ![selectorName isEqualToString:@""] && target)
+
+            const char * selectorName = (((CCString*) (props->objectForKey("selector"))) -> toStdString()).c_str();
+            //NSString* selectorName = [props objectForKey:@"selector"];
+            if (selectorName && strcmp(selectorName, "") != 0 && target)
             {
-                selector = NSSelectorFromString(selectorName);
+                selector = CCBClassGenerator::createCustomSelectorWithName(selectorName);
+                //selector = NSSelectorFromString(selectorName);
             }
             if (!selector) target = NULL;
             
+            /*
             if (target && selector)
             {
                 if (![target respondsToSelector:selector])
@@ -210,12 +222,11 @@ cocos2d::CCNode * CCBReader::ccObjectFromDictionaryExtraPropsAssetsDirOwnerRoot(
                     selector = NULL;
                 }
             }
+             */
         }
-         */
-        
-        /*
-        node = [CCMenuItemImage itemFromNormalSprite:spriteNormal selectedSprite:spriteSelected disabledSprite:spriteDisabled target:target selector:selector];
-         */
+
+        node = (CCNode *)CCMenuItemImage::itemFromNormalImage(spriteFileNormal.c_str(), spriteFileSelected.c_str(), spriteFileDisabled.c_str(), target, selector);
+        //node = [CCMenuItemImage itemFromNormalSprite:spriteNormal selectedSprite:spriteSelected disabledSprite:spriteDisabled target:target selector:selector];
         
         CCBReader::setPropsForNodePropsExtraProps(node, props, extraProps);
         //[CCBReader setPropsForNode:node props:props extraProps:extraProps];

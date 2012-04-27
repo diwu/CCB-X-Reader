@@ -18,3 +18,11 @@ cocos2d::CCLayer * CCBClassGenerator::createCustomCCLayerClassWithName (const ch
     
     return NULL;
 }
+
+cocos2d::SEL_MenuHandler CCBClassGenerator::createCustomSelectorWithName (const char * selectorNameCString) {
+    if (strcmp(selectorNameCString, "pressedButton:")) {
+        return menu_selector(HelloCocosBuilder::pressedButton);
+    }
+    
+    return NULL;
+}
