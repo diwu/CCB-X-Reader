@@ -35,6 +35,9 @@ void CCBReader::setPropsForMenuPropsExtraProps (cocos2d::CCMenu *node, cocos2d::
 void CCBReader::setPropsForLabelBMFontPropsExtraProps (cocos2d::CCLabelBMFont *node, cocos2d::CCDictionary<std::string, cocos2d::CCObject*> * props, cocos2d::CCMutableDictionary<std::string, cocos2d::CCObject*> * extraProps) {
     
 }
+void CCBReader::setPropsForSpritePropsExtraProps (cocos2d::CCSprite *node, cocos2d::CCDictionary<std::string, cocos2d::CCObject*> * props, cocos2d::CCMutableDictionary<std::string, cocos2d::CCObject*> * extraProps) {
+    
+}
 
 cocos2d::CCScene * CCBReader::sceneWithNodeGraphFromFile(const char * file) {
     
@@ -300,6 +303,59 @@ cocos2d::CCNode * CCBReader::ccObjectFromDictionaryExtraPropsAssetsDirOwnerRoot(
         //[CCBReader setPropsForNode:node props:props extraProps:extraProps];
         CCBReader::setPropsForLabelBMFontPropsExtraProps((CCLabelBMFont *)node, props, extraProps);
         //[CCBReader setPropsForLabelBMFont:(CCLabelBMFont*)node props:props extraProps:extraProps];
+    }
+    else if (strcmp(classCString, "CCSprite") == 0)
+    //else if ([class isEqualToString:@"CCSprite"])
+    {
+        
+        CCLog("is processing CCSprite...");
+
+        string spriteFile = path + (((CCString*) (props->objectForKey("spriteFile"))) -> toStdString()).c_str();
+        //NSString* spriteFile = [NSString stringWithFormat:@"%@%@", path, [props objectForKey:@"spriteFile"]];
+        
+        string spriteSheetFile;
+        //spriteSheetFile = ((CCString*) (props->objectForKey("spriteFramesFile"))) -> toStdString();
+        if (props->objectForKey("spriteFramesFile") == NULL) {
+            spriteSheetFile = "";
+        } else {
+            spriteSheetFile = path + (((CCString*) (props->objectForKey("spriteFramesFile"))) -> toStdString()).c_str();
+        }
+        //NSString* spriteSheetFile = [props objectForKey:@"spriteFramesFile"];
+        if ( !spriteSheetFile.empty() && strcmp(spriteSheetFile.c_str(), "") != 0) {
+            spriteSheetFile = path + (((CCString*) (props->objectForKey("spriteFramesFile"))) -> toStdString()).c_str();
+        }
+        //if (spriteSheetFile && ![spriteSheetFile isEqualToString:@""]) spriteSheetFile = [NSString stringWithFormat:@"%@%@", path, spriteSheetFile];
+        
+        if ( !spriteSheetFile.empty() && strcmp(spriteSheetFile.c_str(), "") != 0 )
+        //if (spriteSheetFile && ![spriteSheetFile isEqualToString:@""])
+        {
+            //@try
+            //{
+            CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile(spriteSheetFile.c_str());
+                //[[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:spriteSheetFile];
+            node = CCSprite::spriteWithSpriteFrameName((((CCString*) (props->objectForKey("spriteFile"))) -> toStdString()).c_str());
+                //node = [CCSprite spriteWithSpriteFrameName:[props objectForKey:@"spriteFile"]];
+            //}
+            //@catch (NSException *exception) {
+                //node = NULL;
+            //}
+        }
+        else
+        {
+            node = CCSprite::spriteWithFile(spriteFile.c_str());
+            //node = [CCSprite spriteWithFile:spriteFile];
+        }
+        
+        if ( ! node) {
+            node = CCSprite::spriteWithFile("missing-texture.png");
+        }
+        //if (!node) node = [CCSprite spriteWithFile:@"missing-texture.png"];
+        
+        CCBReader::setPropsForNodePropsExtraProps(node, props, extraProps);
+        //[CCBReader setPropsForNode:node props:props extraProps:extraProps];
+        CCBReader::setPropsForSpritePropsExtraProps((cocos2d::CCSprite *)node, props, extraProps);
+        //[CCBReader setPropsForSprite:(CCSprite*)node props:props extraProps:extraProps];
+                
     }
     else if (strcmp(classCString, "CCLayer") == 0)
     {
