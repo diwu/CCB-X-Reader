@@ -74,7 +74,7 @@ bool HelloWorld::init()
     
     //For test only
     //========================================================
-    CCBReader::nodeGraphFromFile("example.plist");
+    CCBReader::sceneWithNodeGraphFromFile("example.plist");
     //========================================================
 	
 	return true;
