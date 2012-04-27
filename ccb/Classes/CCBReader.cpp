@@ -8,6 +8,7 @@
 
 #include "CCBReader.h"
 #include "CCBClassGenerator.h"
+#include "HelloWorldScene.h"
 
 using namespace cocos2d;
 
@@ -25,8 +26,22 @@ void CCBReader::setPropsForMenuItemPropsExtraProps(cocos2d::CCMenuItem *node, co
 void CCBReader::setPropsForMenuItemImagePropsExtraProps(cocos2d::CCMenuItemImage *node, cocos2d::CCDictionary<std::string, cocos2d::CCObject*> * props, cocos2d::CCMutableDictionary<std::string, cocos2d::CCObject*> * extraProps) {
     
 }
+void CCBReader::setPropsForLayerPropsExtraProps (cocos2d::CCLayer *node, cocos2d::CCDictionary<std::string, cocos2d::CCObject*> * props, cocos2d::CCMutableDictionary<std::string, cocos2d::CCObject*> * extraProps) {
+    
+}
+void CCBReader::setPropsForMenuPropsExtraProps (cocos2d::CCMenu *node, cocos2d::CCDictionary<std::string, cocos2d::CCObject*> * props, cocos2d::CCMutableDictionary<std::string, cocos2d::CCObject*> * extraProps) {
+    
+}
+void CCBReader::setPropsForLabelBMFontPropsExtraProps (cocos2d::CCLabelBMFont *node, cocos2d::CCDictionary<std::string, cocos2d::CCObject*> * props, cocos2d::CCMutableDictionary<std::string, cocos2d::CCObject*> * extraProps) {
+    
+}
 
 cocos2d::CCScene * CCBReader::sceneWithNodeGraphFromFile(const char * file) {
+    
+    //CCScene *pScene = HelloWorld::scene();
+
+    //return pScene;
+    
     return CCBReader::sceneWithNodeGraphFromFileOwner(file, NULL);
 }
 cocos2d::CCScene * CCBReader::sceneWithNodeGraphFromFileOwner(const char * file, cocos2d::CCObject * owner) {
@@ -89,6 +104,9 @@ cocos2d::CCNode * CCBReader::ccObjectFromDictionaryExtraPropsAssetsDirOwner(coco
 }
 
 cocos2d::CCNode * CCBReader::ccObjectFromDictionaryExtraPropsAssetsDirOwnerRoot(cocos2d::CCDictionary<std::string, cocos2d::CCObject*> * dict, cocos2d::CCMutableDictionary<std::string, cocos2d::CCObject*> * extraProps, std::string path, cocos2d::CCObject * owner, cocos2d::CCNode * root) {
+    
+    //CCNode * someNode = HelloWorld::node();
+    //return someNode;
     
     const char * classCString = (((CCString*) (dict->objectForKey("class"))) -> toStdString()).c_str();
     cocos2d::CCDictionary<std::string, cocos2d::CCObject*> * props = (CCDictionary<std::string, CCObject*> *)dict->objectForKey("properties");
@@ -235,6 +253,54 @@ cocos2d::CCNode * CCBReader::ccObjectFromDictionaryExtraPropsAssetsDirOwnerRoot(
         CCBReader::setPropsForMenuItemImagePropsExtraProps((CCMenuItemImage *)node, props, extraProps);
         //[CCBReader setPropsForMenuItemImage:(CCMenuItemImage*)node props:props extraProps:extraProps];
     }
+    else if (strcmp(classCString, "CCMenu") == 0)    
+    //else if ([class isEqualToString:@"CCMenu"])
+    {
+        CCLog("is processing CCMenu...");
+
+        node = CCMenu::menuWithItems(NULL);
+        //node = [CCMenu menuWithItems: nil];
+
+        CCBReader::setPropsForNodePropsExtraProps(node, props, extraProps);
+        //[CCBReader setPropsForNode:node props:props extraProps:extraProps];
+        CCBReader::setPropsForLayerPropsExtraProps((cocos2d::CCLayer *)node, props, extraProps);
+        //[CCBReader setPropsForLayer:(CCLayer*)node props:props extraProps:extraProps];
+        CCBReader::setPropsForMenuPropsExtraProps((cocos2d::CCMenu *)node, props, extraProps);
+        //[CCBReader setPropsForMenu:(CCMenu*)node props:props extraProps:extraProps];
+    }
+    else if (strcmp(classCString, "CCLabelBMFont") == 0)
+    //else if ([class isEqualToString:@"CCLabelBMFont"])
+    {
+
+        string fontFile = path + (((CCString*) (props->objectForKey("fontFile"))) -> toStdString()).c_str();
+        //NSString* fontFile = [NSString stringWithFormat:@"%@%@", path, [props objectForKey:@"fontFile"]];
+        string stringFile = path + (((CCString*) (props->objectForKey("string"))) -> toStdString()).c_str();
+        //NSString* string = [props objectForKey:@"string"];
+        
+        CCLog("is processing CCLabelBMFont... fontFile: %s, string: %s", fontFile.c_str(), stringFile.c_str());
+
+        node = CCLabelBMFont::labelWithString(stringFile.c_str(), fontFile.c_str());
+        //node = [CCLabelBMFont labelWithString:string fntFile:fontFile];
+
+        /*
+        @try {
+            node = [CCLabelBMFont labelWithString:string fntFile:fontFile];
+        }
+        @catch (NSException *exception) {
+            node = NULL;
+        }
+         */
+        
+        if ( ! node) {
+            node = CCLabelBMFont::labelWithString(stringFile.c_str(), "missing-font.fnt");
+        }
+        //if (!node) node = [CCLabelBMFont labelWithString:string fntFile:@"missing-font.fnt"];
+        
+        CCBReader::setPropsForNodePropsExtraProps(node, props, extraProps);
+        //[CCBReader setPropsForNode:node props:props extraProps:extraProps];
+        CCBReader::setPropsForLabelBMFontPropsExtraProps((CCLabelBMFont *)node, props, extraProps);
+        //[CCBReader setPropsForLabelBMFont:(CCLabelBMFont*)node props:props extraProps:extraProps];
+    }
     else if (strcmp(classCString, "CCLayer") == 0)
     {
         CCLog("is processing CCLayer...");
@@ -244,13 +310,20 @@ cocos2d::CCNode * CCBReader::ccObjectFromDictionaryExtraPropsAssetsDirOwnerRoot(
         tempLayer->autorelease();
         
         node = dynamic_cast<CCNode *>(tempLayer);
-                
+          
+        /*
+        CCLayerColor *temp = CCLayerColor::node();
+        temp->setColor(ccc3(255, 255, 255));
+        temp->setOpacity(255);
+        node = temp;
+         */
+        
         if (!node) {
             node = CCLayer::node();
         }
         
         CCBReader::setPropsForNodePropsExtraProps(node, props, extraProps);
-        
+        CCBReader::setPropsForLayerPropsExtraProps((cocos2d::CCLayer *)node, props, extraProps);
         /*
         [CCBReader setPropsForNode:node props:props extraProps:extraProps];
         [CCBReader setPropsForLayer:(CCLayer*)node props:props extraProps:extraProps];

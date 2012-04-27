@@ -157,6 +157,7 @@
 		1031F13115494B5D0058F1A0 /* particle-stars.png in Resources */ = {isa = PBXBuildFile; fileRef = 1031F12415494B5D0058F1A0 /* particle-stars.png */; };
 		1031F13415495FF50058F1A0 /* CCBClassGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1031F13315495FF50058F1A0 /* CCBClassGenerator.cpp */; };
 		1031F137154963F70058F1A0 /* HelloCocosBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1031F136154963F70058F1A0 /* HelloCocosBuilder.cpp */; };
+		10ADE639154AB48700E5A31E /* markerfelt24shadow.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 10ADE638154AB48700E5A31E /* markerfelt24shadow.fnt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -458,6 +459,7 @@
 		1031F13315495FF50058F1A0 /* CCBClassGenerator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CCBClassGenerator.cpp; path = Classes/CCBClassGenerator.cpp; sourceTree = "<group>"; };
 		1031F135154963F70058F1A0 /* HelloCocosBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HelloCocosBuilder.h; path = Classes/HelloCocosBuilder.h; sourceTree = "<group>"; };
 		1031F136154963F70058F1A0 /* HelloCocosBuilder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HelloCocosBuilder.cpp; path = Classes/HelloCocosBuilder.cpp; sourceTree = "<group>"; };
+		10ADE638154AB48700E5A31E /* markerfelt24shadow.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = markerfelt24shadow.fnt; path = Resources/markerfelt24shadow.fnt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -526,6 +528,7 @@
 		1031EF57154901E30058F1A0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				10ADE638154AB48700E5A31E /* markerfelt24shadow.fnt */,
 				1031F11815494B5D0058F1A0 /* btn-test-0.png */,
 				1031F11915494B5D0058F1A0 /* btn-test-1.png */,
 				1031F11A15494B5D0058F1A0 /* btn-test-2.png */,
@@ -1154,6 +1157,7 @@
 				1031F12F15494B5D0058F1A0 /* particle-smoke.png in Resources */,
 				1031F13015494B5D0058F1A0 /* particle-snow.png in Resources */,
 				1031F13115494B5D0058F1A0 /* particle-stars.png in Resources */,
+				10ADE639154AB48700E5A31E /* markerfelt24shadow.fnt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1291,7 +1295,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Bin She (JJR62QYPZ2)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Di Wu (CB3TJSARXK)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1309,7 +1313,7 @@
 					"\"$(SDKROOT)/usr/include/libxml2\"",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A8421FA9-5B74-4CFA-94D5-ECA8E19F8136";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "9605E642-9F57-4E05-81F3-1ED2154E0F74";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
