@@ -16,27 +16,141 @@ void CCBReader::setPropsForNodePropsExtraProps (cocos2d::CCNode *node, cocos2d::
     
     node->setPosition(CCBReader::pointValFromDictForKey(props, "position"));
     
+    CCSprite *tempSprite = dynamic_cast<CCSprite *>(node);
+    CCMenuItemImage *tempMenuItemImage = dynamic_cast<CCMenuItemImage *>(node);
+    CCLabelBMFont *tempLabelBMFont = dynamic_cast<CCLabelBMFont *>(node);
+    
+    if ( !tempSprite && !tempMenuItemImage && !tempLabelBMFont) {
+        node->setContentSize(CCBReader::sizeValFromDictForKey(props, "contentSize"));
+    }
+    
+    node->setScaleX(CCBReader::floatValFromDictForKey(props, "scaleX"));
+    node->setScaleY(CCBReader::floatValFromDictForKey(props, "scaleY"));
+    node->setAnchorPoint(CCBReader::pointValFromDictForKey(props, "anchorPoint"));
+    node->setRotation(CCBReader::floatValFromDictForKey(props, "rotation"));
+    node->setIsRelativeAnchorPoint(CCBReader::boolValFromDictForKey(props, "isRelativeAnchorPoint"));
+    node->setIsVisible(CCBReader::boolValFromDictForKey(props, "visible"));
+    
+    if (extraProps) {
+        // haven't implemented yet...
+    } else {
+        node->setTag(CCBReader::intValFromDictForKey(props, "tag"));
+    }
 }
 void CCBReader::setPropsForParticleSystemPropsExtraProps (cocos2d::CCParticleSystem *node, cocos2d::CCDictionary<std::string, cocos2d::CCObject*> * props, cocos2d::CCMutableDictionary<std::string, cocos2d::CCObject*> * extraProps) {
+    node->setEmitterMode(CCBReader::intValFromDictForKey(props, "emitterMode"));
+    node->setEmissionRate(CCBReader::floatValFromDictForKey(props, "emissionRate"));
+    node->setDuration(CCBReader::floatValFromDictForKey(props, "duration"));
+    node->setPosVar(CCBReader::pointValFromDictForKey(props, "posVar"));
+    node->setTotalParticles(CCBReader::intValFromDictForKey(props, "totalParticles"));
+    node->setLife(CCBReader::floatValFromDictForKey(props, "life"));
+    node->setLifeVar(CCBReader::floatValFromDictForKey(props, "lifeVar"));
+    node->setStartSize(CCBReader::intValFromDictForKey(props, "startSize"));
+    node->setStartSizeVar(CCBReader::intValFromDictForKey(props, "startSizeVar"));
+    node->setEndSize(CCBReader::intValFromDictForKey(props, "endSize"));
+    node->setEndSpinVar(CCBReader::intValFromDictForKey(props, "endSizeVar"));
     
+    if (dynamic_cast<CCParticleSystemQuad *>(node) != NULL) {
+        node->setStartSpin(intValFromDictForKey(props, "startSpin"));
+        node->setStartSpinVar(intValFromDictForKey(props, "startSpinVar"));
+        node->setEndSpin(intValFromDictForKey(props, "endSpin"));
+        node->setEndSpinVar(intValFromDictForKey(props, "endSpinVar"));
+    }
+    
+    node->setStartColor(CCBReader::color4fValFromDictForKey(props, "startColor"));
+    node->setStartColorVar(CCBReader::color4fValFromDictForKey(props, "startColorVar"));
+    node->setEndColor(CCBReader::color4fValFromDictForKey(props, "endColor"));
+    node->setEndColorVar(CCBReader::color4fValFromDictForKey(props, "endColorVar"));
+    node->setBlendFunc(CCBReader::blendFuncValFromDictForKey(props, "blendFunc"));
+    
+    if (node->getEmitterMode() == kCCParticleModeGravity) {
+        node->setGravity(CCBReader::pointValFromDictForKey(props, "gravity"));
+        node->setAngle(CCBReader::intValFromDictForKey(props, "angle"));
+        node->setAngleVar(CCBReader::intValFromDictForKey(props, "angleVar"));
+        node->setSpeed(CCBReader::intValFromDictForKey(props, "speed"));
+        node->setSpeedVar(CCBReader::intValFromDictForKey(props, "speedVar"));
+        node->setTangentialAccel(CCBReader::intValFromDictForKey(props, "tangentialAccel"));
+        node->setTangentialAccelVar(CCBReader::intValFromDictForKey(props, "tangentialAccelVar"));
+        node->setRadialAccel(CCBReader::intValFromDictForKey(props, "radialAccel"));
+        node->setRadialAccelVar(CCBReader::intValFromDictForKey(props, "radialAccelVar"));
+    } else {
+        node->setStartRadius(intValFromDictForKey(props, "startRadius"));
+        node->setStartRadiusVar(intValFromDictForKey(props, "startRadiusVar"));
+        node->setEndRadius(intValFromDictForKey(props, "endRadius"));
+        node->setEndRadiusVar(intValFromDictForKey(props, "endRadiusVar"));
+        node->setRotatePerSecond(intValFromDictForKey(props, "rotatePerSecond"));
+        node->setRotatePerSecondVar(intValFromDictForKey(props, "rotatePerSecondVar"));
+    }
+    
+    if (extraProps) {
+        // haven't implemented yet...
+    }
+    
+    node->setPositionType(kCCPositionTypeGrouped);
 }
 void CCBReader::setPropsForMenuItemPropsExtraProps(cocos2d::CCMenuItem *node, cocos2d::CCDictionary<std::string, cocos2d::CCObject*> * props, cocos2d::CCMutableDictionary<std::string, cocos2d::CCObject*> * extraProps) {
     
+    node->setIsEnabled(CCBReader::boolValFromDictForKey(props, "isEnabled"));
+    
+    if (extraProps) {
+        //haven't implemented yet
+    }
 }
 void CCBReader::setPropsForMenuItemImagePropsExtraProps(cocos2d::CCMenuItemImage *node, cocos2d::CCDictionary<std::string, cocos2d::CCObject*> * props, cocos2d::CCMutableDictionary<std::string, cocos2d::CCObject*> * extraProps) {
     
+    if (extraProps) {
+        //haven't implemented yet
+    }
 }
 void CCBReader::setPropsForLayerPropsExtraProps (cocos2d::CCLayer *node, cocos2d::CCDictionary<std::string, cocos2d::CCObject*> * props, cocos2d::CCMutableDictionary<std::string, cocos2d::CCObject*> * extraProps) {
     
+    if (extraProps) {
+        //haven't implemented yet
+    } else {
+        node->setIsTouchEnabled(CCBReader::boolValFromDictForKey(props, "touchEnabled"));
+        node->setIsAccelerometerEnabled(CCBReader::boolValFromDictForKey(props, "accelerometerEnabled"));
+    }
 }
 void CCBReader::setPropsForMenuPropsExtraProps (cocos2d::CCMenu *node, cocos2d::CCDictionary<std::string, cocos2d::CCObject*> * props, cocos2d::CCMutableDictionary<std::string, cocos2d::CCObject*> * extraProps) {
     
+    if (extraProps) {
+        //haven't implemented yet
+    }
 }
 void CCBReader::setPropsForLabelBMFontPropsExtraProps (cocos2d::CCLabelBMFont *node, cocos2d::CCDictionary<std::string, cocos2d::CCObject*> * props, cocos2d::CCMutableDictionary<std::string, cocos2d::CCObject*> * extraProps) {
     
+    node->setOpacity(CCBReader::intValFromDictForKey(props, "opacity"));
+    node->setColor(CCBReader::color3ValFromDictForKey(props, "color"));
+    
+    if (extraProps) {
+        //haven't implemented yet
+    }
 }
 void CCBReader::setPropsForSpritePropsExtraProps (cocos2d::CCSprite *node, cocos2d::CCDictionary<std::string, cocos2d::CCObject*> * props, cocos2d::CCMutableDictionary<std::string, cocos2d::CCObject*> * extraProps) {
     
+    node->setOpacity(CCBReader::intValFromDictForKey(props, "opacity"));
+    node->setColor(CCBReader::color3ValFromDictForKey(props, "color"));
+    node->setFlipX(CCBReader::boolValFromDictForKey(props, "flipX"));
+    node->setFlipY(CCBReader::boolValFromDictForKey(props, "flipY"));
+    
+    node->setBlendFunc(CCBReader::blendFuncValFromDictForKey(props, "blendFunc"));
+    
+    if (extraProps) {
+        //haven't implemented yet
+    }
+}
+void CCBReader::setPropsForLayerColorPropsExtraProps (cocos2d::CCLayerColor *node, cocos2d::CCDictionary<std::string, cocos2d::CCObject*> * props, cocos2d::CCMutableDictionary<std::string, cocos2d::CCObject*> * extraProps) {
+    
+    node->setColor(CCBReader::color3ValFromDictForKey(props, "color"));
+    node->setOpacity(CCBReader::intValFromDictForKey(props, "opacity"));
+    node->setBlendFunc(CCBReader::blendFuncValFromDictForKey(props, "blendFunc"));
+}
+void CCBReader::setPropsForLayerGradientPropsExtraProps (cocos2d::CCLayerGradient *node, cocos2d::CCDictionary<std::string, cocos2d::CCObject*> * props, cocos2d::CCMutableDictionary<std::string, cocos2d::CCObject*> * extraProps) {
+    node->setStartColor(CCBReader::color3ValFromDictForKey(props, "color"));
+    node->setStartOpacity(CCBReader::intValFromDictForKey(props, "opacity"));
+    node->setEndColor(CCBReader::color3ValFromDictForKey(props, "endColor"));
+    node->setEndOpacity(CCBReader::intValFromDictForKey(props, "endOpacity"));
+    node->setVector(CCBReader::pointValFromDictForKey(props, "vector"));
 }
 
 cocos2d::CCScene * CCBReader::sceneWithNodeGraphFromFile(const char * file) {
@@ -111,14 +225,34 @@ cocos2d::CCNode * CCBReader::ccObjectFromDictionaryExtraPropsAssetsDirOwnerRoot(
     //CCNode * someNode = HelloWorld::node();
     //return someNode;
     
+    CCLog(" - android - 2 - 1");
+    
     const char * classCString = (((CCString*) (dict->objectForKey("class"))) -> toStdString()).c_str();
+    CCLog(" - android - 2 - 2");
+
     cocos2d::CCDictionary<std::string, cocos2d::CCObject*> * props = (CCDictionary<std::string, CCObject*> *)dict->objectForKey("properties");
+    CCLog(" - android - 2 - 3");
+
     cocos2d::CCMutableArray<CCObject *> * children = (cocos2d::CCMutableArray<CCObject *> *)dict->objectForKey("children");
-    const char *customClass = (((CCString*) (props->objectForKey("customClass"))) -> toStdString()).c_str();
+    CCLog(" - android - 2 - 4");
+
+    const char *customClass;
+    
+    if (props->objectForKey("customClass") == NULL) {
+        customClass = "";
+    } else {
+        customClass = (((CCString*) (props->objectForKey("customClass"))) -> toStdString()).c_str();
+    }
+    
+    CCLog(" - android - 2 - 5 - customClass = %s", customClass);
 
     if (extraProps) { 
+        CCLog(" - android - 2 - 6");
+
         customClass = NULL;
     }
+    CCLog(" - android - 2 - 7");
+
     
     CCNode * node;
     
@@ -226,8 +360,11 @@ cocos2d::CCNode * CCBReader::ccObjectFromDictionaryExtraPropsAssetsDirOwnerRoot(
 
             const char * selectorName = (((CCString*) (props->objectForKey("selector"))) -> toStdString()).c_str();
             //NSString* selectorName = [props objectForKey:@"selector"];
+            CCLog(" - selector - 1");
             if (selectorName && strcmp(selectorName, "") != 0 && target)
             {
+                CCLog(" - selector - 2 - +++%s+++", selectorName);
+
                 selector = CCBClassGenerator::createCustomSelectorWithName(selectorName);
                 //selector = NSSelectorFromString(selectorName);
             }
@@ -357,6 +494,102 @@ cocos2d::CCNode * CCBReader::ccObjectFromDictionaryExtraPropsAssetsDirOwnerRoot(
         //[CCBReader setPropsForSprite:(CCSprite*)node props:props extraProps:extraProps];
                 
     }
+    else if (strcmp(classCString, "CCLayerGradient") == 0) 
+    //else if ([class isEqualToString:@"CCLayerGradient"])
+    {
+        
+        CCLog("is processing CCLayerGradient...");
+        
+        if (customClass != NULL && strcmp(customClass, "") != 0) {
+            node = CCBClassGenerator::createCustomCCLayerGradientClassWithName(customClass);
+        } else {
+            node = NULL;
+        }
+        
+        if (node != NULL) {
+            CCLayerGradient * temp = dynamic_cast<CCLayerGradient *>(node);
+            if (temp != NULL) {
+                temp->init();
+                temp->autorelease();
+            }
+        } else {
+            node = CCLayerGradient::node();
+        }
+        
+        CCBReader::setPropsForNodePropsExtraProps(node, props, extraProps);
+        CCBReader::setPropsForLayerPropsExtraProps((CCLayer *) node, props, extraProps);
+        CCBReader::setPropsForLayerColorPropsExtraProps((CCLayerColor *)node, props, extraProps);
+        CCBReader::setPropsForLayerGradientPropsExtraProps((CCLayerGradient *) node, props, extraProps);
+        CCLog("finished processing CCLayerGradient...");
+
+        /*
+        node = [CCBReader createCustomClassWithName:customClass];
+        if (node)
+        {
+            if (![node isKindOfClass:[CCLayerGradient class]])
+            {
+                NSLog(@"WARNING! %@ is not subclass of CCLayerGradient",customClass);
+                node = NULL;
+            }
+            else
+            {
+                node = [[node init] autorelease];
+            }
+        }
+        if (!node) node = [CCLayerGradient node];
+        
+        [CCBReader setPropsForNode:node props:props extraProps:extraProps];
+        [CCBReader setPropsForLayer:(CCLayer*)node props:props extraProps:extraProps];
+        [CCBReader setPropsForLayerColor:(CCLayerColor*)node props:props extraProps:extraProps];
+        [CCBReader setPropsForLayerGradient:(CCLayerGradient*)node props:props extraProps:extraProps];
+         */
+    }
+    else if (strcmp(classCString, "CCLayerColor") == 0)
+    //else if ([class isEqualToString:@"CCLayerColor"])
+    {
+        CCLog("is processing CCLayerColor...");
+
+        if (customClass != NULL && strcmp(customClass, "") != 0) {
+            node = CCBClassGenerator::createCustomCCLayerColorClassWithName(customClass);
+        } else {
+            node = NULL;
+        }
+        
+        if (node != NULL) {
+            CCLayerColor * temp = dynamic_cast<CCLayerColor *>(node);
+            if (temp != NULL) {
+                temp->init();
+                temp->autorelease();
+            }
+        } else {
+            node = CCLayerColor::node();
+        }
+        
+        CCBReader::setPropsForNodePropsExtraProps(node, props, extraProps);
+        CCBReader::setPropsForLayerPropsExtraProps((CCLayer *) node, props, extraProps);
+        CCBReader::setPropsForLayerColorPropsExtraProps((CCLayerColor *)node, props, extraProps);
+        
+        /*
+        //node = [CCBReader createCustomClassWithName:customClass];
+        if (node)
+        {
+            if (![node isKindOfClass:[CCLayerColor class]])
+            {
+                NSLog(@"WARNING! %@ is not subclass of CCLayerColor",customClass);
+                node = NULL;
+            }
+            else
+            {
+                node = [[node init] autorelease];
+            }
+        }
+        if (!node) node = [CCLayerColor node];
+        
+        [CCBReader setPropsForNode:node props:props extraProps:extraProps];
+        [CCBReader setPropsForLayer:(CCLayer*)node props:props extraProps:extraProps];
+        [CCBReader setPropsForLayerColor:(CCLayerColor*)node props:props extraProps:extraProps];
+         */
+    }
     else if (strcmp(classCString, "CCLayer") == 0)
     {
         CCLog("is processing CCLayer...");
@@ -374,8 +607,11 @@ cocos2d::CCNode * CCBReader::ccObjectFromDictionaryExtraPropsAssetsDirOwnerRoot(
         node = temp;
          */
         
+        
         if (!node) {
             node = CCLayer::node();
+        } else {
+            CCLog(" HelloWorldBuilder cclayer created ok...");
         }
         
         CCBReader::setPropsForNodePropsExtraProps(node, props, extraProps);
@@ -385,33 +621,174 @@ cocos2d::CCNode * CCBReader::ccObjectFromDictionaryExtraPropsAssetsDirOwnerRoot(
         [CCBReader setPropsForLayer:(CCLayer*)node props:props extraProps:extraProps];
          */
     }
-    
+    /*
+    else if (strcmp(classCString, "CCBTemplateNode") == 0)
+    //else if ([class isEqualToString:@"CCBTemplateNode"])
+    {
+        const char * templateFile = (((CCString*) (props->objectForKey("spriteFile"))) -> toStdString()).c_str();
+        CCBTemplate* t = [[[CCBTemplate alloc] initWithFile:templateFile assetsPath:path] autorelease];
+        if (extraProps)
+        {
+            node = [[[CCBTemplateNode alloc] initWithTemplate:t] autorelease];
+        }
+        else
+        {
+            node = [CCBReader createClassFromCCBTemplate:t];
+            if (!node) node = [CCNode node];
+        }
+        
+        [CCBReader setPropsForNode:node props:props extraProps:extraProps];
+        if (extraProps)
+        {
+            //NSLog(@"setting customClass to %@", t.customClass);
+            //[extraProps setObject:t.customClass forKey:@"customClass"];
+            //NSLog(@"extraProps=%@",extraProps);
+            [CCBReader setExtraProp:t.customClass forKey:@"customClass" andTag:node.tag inDictionary:extraProps];
+        }
+    }
+     */
     //=========================================================
+    else if (strcmp(classCString, "CCNode") == 0)
+    //else if ([class isEqualToString:@"CCNode"])
+    {
+        CCLog("is processing CCNode...");
+
+        if (customClass != NULL && strcmp(customClass, "") != 0) {
+            node = CCBClassGenerator::createCustomCCNodeClassWithName(customClass);
+        } else {
+            node = NULL;
+        }
+        
+        if (node != NULL) {
+            CCNode * temp = dynamic_cast<CCNode *>(node);
+            if (temp != NULL) {
+                temp->autorelease();
+            }
+        } else {
+            node = CCNode::node();
+        }
+        
+        CCBReader::setPropsForNodePropsExtraProps(node, props, extraProps);
+        
+        /*
+        //node = [CCBReader createCustomClassWithName:customClass];
+        if (node)
+        {
+            if (![node isKindOfClass:[CCNode class]])
+            {
+                NSLog(@"WARNING! %@ is not subclass of CCNode",customClass);
+                node = NULL;
+            }
+            else
+            {
+                node = [[node init] autorelease];
+            }
+        }
+        if (!node) node = [CCNode node];
+        
+        [CCBReader setPropsForNode:node props:props extraProps:extraProps];
+         */
+    }
     if (!root) {
         root = node;
+    }
+    
+    if (children == NULL) {
+        CCLog(" - android - children == NULL");
+    } else {
+        CCLog(" - android - children != NULL");
+        CCLog(" - children count = %d", children->count());
     }
     
     // Add children
     for (int i = 0; i < children->count(); i++)
     {
         CCLog("adding child %d - total = %d", i, children->count());
+        CCLog(" - android - 1 - ");
         cocos2d::CCDictionary<std::string, cocos2d::CCObject*> * childDict = (cocos2d::CCDictionary<std::string, cocos2d::CCObject*> *) children->getObjectAtIndex(i);
+        CCLog(" - android - 2 - ");
+
         CCNode *child = CCBReader::ccObjectFromDictionaryExtraPropsAssetsDirOwnerRoot(childDict, extraProps, path, owner, root);
+        CCLog(" - android - 3 - ");
+
 
         int zOrder = atoi((((CCString *)(((cocos2d::CCDictionary<std::string, cocos2d::CCObject*> *)childDict->objectForKey("properties"))->objectForKey("zOrder")))->toStdString()).c_str());
 
+        CCLog(" - android - 4 - ");
+
         if (child && node)
         {
+            CCLog(" - android - 5 - ");
 
-            //node->addChild(child, zOrder);
+            node->addChild(child, zOrder);
         }
         else
         {
+            CCLog(" - android - 6 - ");
 
             CCLog("WARNING! Failed to add child=%s to node=%s",child,node);
         }
         
+        CCLog(" - android - 7 - ");
+
     }
+    
+    CCLog(" - android - 8 - ");
+
+    
+    if ( ! extraProps) {
+        
+        CCLog(" - android - 9 - ");
+
+
+        string assignmentName;
+        if (props->objectForKey("memberVarAssignmentName") != NULL) {
+            CCLog(" - android - 9 - 1 - A");
+
+            assignmentName= ((CCString*) (props->objectForKey("memberVarAssignmentName"))) -> toStdString();
+
+        } else {
+            CCLog(" - android - 9 - 1 - B");
+            assignmentName = "";
+
+        }
+
+        int assignmentType = ((CCString*) (props->objectForKey("memberVarAssignmentType"))) -> toInt();
+        CCLog(" - android - 9 - 2 ");
+        
+        if ( !assignmentName.empty() && strcmp(assignmentName.c_str(), "") != 0 && assignmentType) {
+            
+            CCLog(" - android - 9 - 3 ");
+
+            
+            CCObject * assignTo = NULL;
+            
+            if (assignmentType == kCCBMemberVarAssignmentTypeOwner) {
+                CCLog(" - android - 9 - 4 ");
+
+                assignTo = owner;
+            } else {
+                
+                CCLog(" - android - 9 - 5 ");
+
+                assignTo = root;
+            }
+            
+            if (assignTo != NULL) {
+                CCLog(" - android - 9 - 6 ");
+
+                CCBClassGenerator::assignIvarToParent(node, assignTo, assignmentName.c_str());
+            }
+            CCLog(" - android - 9 - 7 ");
+
+        }
+        
+        CCBClassGenerator::respondsToSelectorDidLoadFromCCB(node);
+
+        CCLog(" - android - 10 - ");
+
+    }
+    
     
     return node;
 }
@@ -430,3 +807,79 @@ cocos2d::CCPoint CCBReader::pointValFromDictForKey(cocos2d::CCDictionary<std::st
     return ccp(x, y);
 }
 
+cocos2d::CCSize CCBReader::sizeValFromDictForKey(cocos2d::CCDictionary<std::string, cocos2d::CCObject*> * dict, std::string key) {
+    CCMutableArray<CCString *> * arr = (CCMutableArray<CCString *> *)dict->objectForKey(key);
+    CCString * w_ccString = arr->getObjectAtIndex(0);
+    CCString * h_ccString = arr->getObjectAtIndex(1);
+    
+    float w = atof(w_ccString->toStdString().c_str());
+    float h = atof(h_ccString->toStdString().c_str());
+    
+    CCLog("size value; w = %f, h = %f", w, h);
+    
+    return CCSizeMake(w, h);
+}
+
+float CCBReader::floatValFromDictForKey(cocos2d::CCDictionary<std::string, cocos2d::CCObject*> * dict, std::string key) {
+    CCLog("float value = %f, key = %s", atof(((CCString *)dict->objectForKey(key))->toStdString().c_str()), key.c_str());
+    return atof(((CCString *)dict->objectForKey(key))->toStdString().c_str());
+}
+
+bool CCBReader::boolValFromDictForKey(cocos2d::CCDictionary<std::string, cocos2d::CCObject*> * dict, std::string key) {
+    CCLog("bool value = %d, key = %s", atoi(((CCString *)dict->objectForKey(key))->toStdString().c_str()), key.c_str());
+    return atoi(((CCString *)dict->objectForKey(key))->toStdString().c_str());
+}
+int CCBReader::intValFromDictForKey(cocos2d::CCDictionary<std::string, cocos2d::CCObject*> * dict, std::string key) {
+    CCLog("int value = %d, key = %s", atoi(((CCString *)dict->objectForKey(key))->toStdString().c_str()), key.c_str());
+    return atoi(((CCString *)dict->objectForKey(key))->toStdString().c_str());    
+}
+cocos2d::ccColor4F CCBReader::color4fValFromDictForKey(cocos2d::CCDictionary<std::string, cocos2d::CCObject*> * dict, std::string key) {
+    CCMutableArray<CCString *> * arr = (CCMutableArray<CCString *> *)dict->objectForKey(key);
+    CCString * r_ccString = arr->getObjectAtIndex(0);
+    CCString * g_ccString = arr->getObjectAtIndex(1);
+    CCString * b_ccString = arr->getObjectAtIndex(2);
+    CCString * a_ccString = arr->getObjectAtIndex(3);
+    
+    float r = r_ccString->toFloat();
+    float g = g_ccString->toFloat();
+    float b = b_ccString->toFloat();
+    float a = a_ccString->toFloat();
+    
+    ccColor4F color;
+    color.r = r;
+    color.g = g;
+    color.b = b;
+    color.a = a;
+    
+    CCLog(" color 4f - r/g/b/a = %f/%f/%f/%f, key = %s", r, g, b, a, key.c_str());
+    
+    return color;
+
+}
+cocos2d::ccBlendFunc CCBReader::blendFuncValFromDictForKey(cocos2d::CCDictionary<std::string, cocos2d::CCObject*> * dict, std::string key) {
+    CCMutableArray<CCString *> * arr = (CCMutableArray<CCString *> *)dict->objectForKey(key);
+    CCString * src_string = arr->getObjectAtIndex(0);
+    CCString * dst_string = arr->getObjectAtIndex(1);
+    int src = src_string->toInt();
+    int dst = dst_string->toInt();
+    ccBlendFunc blendFunc;
+    blendFunc.src = src;
+    blendFunc.dst = dst;
+    
+    return blendFunc;
+}
+
+cocos2d::ccColor3B CCBReader::color3ValFromDictForKey(cocos2d::CCDictionary<std::string, cocos2d::CCObject*> * dict, std::string key) {
+    CCMutableArray<CCString *> * arr = (CCMutableArray<CCString *> *)dict->objectForKey(key);
+    CCString * r_ccString = arr->getObjectAtIndex(0);
+    CCString * g_ccString = arr->getObjectAtIndex(1);
+    CCString * b_ccString = arr->getObjectAtIndex(2);
+    
+    int r = r_ccString->toInt();
+    int g = g_ccString->toInt();
+    int b = b_ccString->toInt();
+    
+    CCLog(" color 3 val - r/g/b = %d/%d/%d, key = %s", r, g, b, key.c_str());
+    
+    return ccc3(r, g, b);
+}

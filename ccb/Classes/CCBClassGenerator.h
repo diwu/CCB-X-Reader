@@ -16,6 +16,11 @@ class CCBClassGenerator {
 public:
     static cocos2d::CCLayer * createCustomCCLayerClassWithName (const char * classNameCString);
     static cocos2d::SEL_MenuHandler createCustomSelectorWithName (const char * selectorNameCString);
+    static cocos2d::CCLayer * createCustomCCLayerGradientClassWithName (const char * classNameCString);
+    static cocos2d::CCLayer * createCustomCCLayerColorClassWithName (const char * classNameCString);
+    static cocos2d::CCLayer * createCustomCCNodeClassWithName (const char * classNameCString);
+    static bool respondsToSelectorDidLoadFromCCB (cocos2d::CCNode * node);
+    static bool assignIvarToParent(cocos2d::CCNode * ivar, cocos2d::CCObject * parent, const char * assignmentNameCString);
 };
 
 #endif
