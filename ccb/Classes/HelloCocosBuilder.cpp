@@ -51,6 +51,6 @@ void HelloCocosBuilder::pressedButton(CCObject *pSender) {
 
 void HelloCocosBuilder::didLoadFromCCB() {
     CCLog(" - didLoadFromCCB");
-    //sprtBurst->runAction(CCRepeatForever::actionWithAction(CCRotateBy::actionWithDuration(5.0f, 360)));
+    sprtBurst->runAction(CCRepeatForever::actionWithAction(CCRotateBy::actionWithDuration(5.0f, 360)));
 }
 

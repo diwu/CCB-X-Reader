@@ -42,8 +42,10 @@ cocos2d::CCLayer * CCBClassGenerator::createCustomCCNodeClassWithName (const cha
 
 bool CCBClassGenerator::respondsToSelectorDidLoadFromCCB (cocos2d::CCNode * node) {
     if (dynamic_cast<HelloCocosBuilder *>(node) != NULL) {
+        
         HelloCocosBuilder *temp = dynamic_cast<HelloCocosBuilder *>(node);
         temp->didLoadFromCCB();
+
         return true;
     } else {
         return false;

@@ -97,7 +97,7 @@ bool AppDelegate::applicationDidFinishLaunching()
 	// run
 	pDirector->runWithScene(pScene);
      */
-    CCScene *pScene = CCBReader::sceneWithNodeGraphFromFile("example.plist");
+    CCScene *pScene = CCBReader::sceneWithNodeGraphFromFile("example.ccb");
     pDirector->runWithScene(pScene);
 
 	return true;
