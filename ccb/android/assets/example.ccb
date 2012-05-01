@@ -23,8 +23,8 @@
 					<integer>0</integer>
 					<key>anchorPoint</key>
 					<array>
-						<real>0</real>
-						<real>0</real>
+						<real>0.0</real>
+						<real>0.0</real>
 					</array>
 					<key>blendFunc</key>
 					<array>
@@ -70,11 +70,11 @@
 					<integer>255</integer>
 					<key>position</key>
 					<array>
-						<real>0</real>
-						<real>0</real>
+						<real>0.0</real>
+						<real>0.0</real>
 					</array>
 					<key>rotation</key>
-					<real>0</real>
+					<real>0.0</real>
 					<key>scaleX</key>
 					<real>1</real>
 					<key>scaleY</key>
@@ -85,7 +85,7 @@
 					<integer>0</integer>
 					<key>vector</key>
 					<array>
-						<real>0</real>
+						<real>0.0</real>
 						<real>-1</real>
 					</array>
 					<key>visible</key>
@@ -146,11 +146,11 @@
 						<real>160</real>
 					</array>
 					<key>rotation</key>
-					<real>0</real>
+					<real>0.0</real>
 					<key>scaleX</key>
-					<real>1</real>
+					<real>2</real>
 					<key>scaleY</key>
-					<real>1</real>
+					<real>2</real>
 					<key>spriteFile</key>
 					<string>burst.png</string>
 					<key>tag</key>
@@ -170,8 +170,8 @@
 				<dict>
 					<key>anchorPoint</key>
 					<array>
-						<real>0</real>
-						<real>0</real>
+						<real>0.0</real>
+						<real>0.0</real>
 					</array>
 					<key>angle</key>
 					<integer>90</integer>
@@ -184,8 +184,8 @@
 					</array>
 					<key>contentSize</key>
 					<array>
-						<real>0</real>
-						<real>0</real>
+						<real>0.0</real>
+						<real>0.0</real>
 					</array>
 					<key>customClass</key>
 					<string></string>
@@ -197,17 +197,17 @@
 					<integer>0</integer>
 					<key>endColor</key>
 					<array>
-						<real>0.2449297904968262</real>
-						<real>0.2808579504489899</real>
-						<real>0.35326087474823</real>
+						<real>0.24492979049682617</real>
+						<real>0.28085795044898987</real>
+						<real>0.35326087474822998</real>
 						<real>1</real>
 					</array>
 					<key>endColorVar</key>
 					<array>
-						<real>0.1684782654047012</real>
-						<real>0.1684782654047012</real>
-						<real>0.1684782654047012</real>
-						<real>0</real>
+						<real>0.16847826540470123</real>
+						<real>0.16847826540470123</real>
+						<real>0.16847826540470123</real>
+						<real>0.0</real>
 					</array>
 					<key>endSize</key>
 					<integer>4</integer>
@@ -229,7 +229,7 @@
 					<key>life</key>
 					<real>4.5</real>
 					<key>lifeVar</key>
-					<real>0</real>
+					<real>0.0</real>
 					<key>lockedScaleRatio</key>
 					<true/>
 					<key>memberVarAssignmentName</key>
@@ -239,19 +239,19 @@
 					<key>posVar</key>
 					<array>
 						<real>275</real>
-						<real>0</real>
+						<real>0.0</real>
 					</array>
 					<key>position</key>
 					<array>
 						<real>240</real>
-						<real>0</real>
+						<real>0.0</real>
 					</array>
 					<key>radialAccel</key>
 					<integer>0</integer>
 					<key>radialAccelVar</key>
 					<integer>1</integer>
 					<key>rotation</key>
-					<real>0</real>
+					<real>0.0</real>
 					<key>scaleX</key>
 					<real>1</real>
 					<key>scaleY</key>
@@ -264,16 +264,16 @@
 					<string>particle-stars.png</string>
 					<key>startColor</key>
 					<array>
-						<real>0.1055082157254219</real>
-						<real>0.1209849640727043</real>
-						<real>0.1521739065647125</real>
-						<real>0.1000000014901161</real>
+						<real>0.10550821572542191</real>
+						<real>0.12098496407270432</real>
+						<real>0.15217390656471252</real>
+						<real>0.10000000149011612</real>
 					</array>
 					<key>startColorVar</key>
 					<array>
-						<real>0</real>
-						<real>0</real>
-						<real>0</real>
+						<real>0.0</real>
+						<real>0.0</real>
+						<real>0.0</real>
 						<real>1</real>
 					</array>
 					<key>startSize</key>
@@ -307,8 +307,8 @@
 				<dict>
 					<key>anchorPoint</key>
 					<array>
-						<real>0</real>
-						<real>0</real>
+						<real>0.0</real>
+						<real>0.0</real>
 					</array>
 					<key>blendFunc</key>
 					<array>
@@ -346,11 +346,11 @@
 					<integer>255</integer>
 					<key>position</key>
 					<array>
-						<real>0</real>
-						<real>0</real>
+						<real>0.0</real>
+						<real>0.0</real>
 					</array>
 					<key>rotation</key>
-					<real>0</real>
+					<real>0.0</real>
 					<key>scaleX</key>
 					<real>1</real>
 					<key>scaleY</key>
@@ -417,7 +417,7 @@
 						<real>268</real>
 					</array>
 					<key>rotation</key>
-					<real>0</real>
+					<real>0.0</real>
 					<key>scaleX</key>
 					<real>1</real>
 					<key>scaleY</key>
@@ -477,7 +477,7 @@
 						<real>221</real>
 					</array>
 					<key>rotation</key>
-					<real>0</real>
+					<real>0.0</real>
 					<key>scaleX</key>
 					<real>1</real>
 					<key>scaleY</key>
@@ -544,11 +544,11 @@
 						<real>106</real>
 					</array>
 					<key>rotation</key>
-					<real>0</real>
+					<real>0.0</real>
 					<key>scaleX</key>
-					<integer>2</integer>
+					<real>1</real>
 					<key>scaleY</key>
-					<integer>2</integer>
+					<real>1</real>
 					<key>spriteFile</key>
 					<string>logo-icon.png</string>
 					<key>tag</key>
@@ -598,11 +598,11 @@
 									<integer>0</integer>
 									<key>position</key>
 									<array>
-										<real>0</real>
-										<real>0</real>
+										<real>0.0</real>
+										<real>0.0</real>
 									</array>
 									<key>rotation</key>
-									<real>0</real>
+									<real>0.0</real>
 									<key>scaleX</key>
 									<real>1</real>
 									<key>scaleY</key>
@@ -634,13 +634,13 @@
 							<integer>0</integer>
 							<key>anchorPoint</key>
 							<array>
-								<real>0</real>
-								<real>0</real>
+								<real>0.0</real>
+								<real>0.0</real>
 							</array>
 							<key>contentSize</key>
 							<array>
-								<real>0</real>
-								<real>0</real>
+								<real>0.0</real>
+								<real>0.0</real>
 							</array>
 							<key>customClass</key>
 							<string></string>
@@ -660,11 +660,11 @@
 							<integer>1</integer>
 							<key>position</key>
 							<array>
-								<real>0</real>
-								<real>0</real>
+								<real>0.0</real>
+								<real>0.0</real>
 							</array>
 							<key>rotation</key>
-							<real>0</real>
+							<real>0.0</real>
 							<key>scaleX</key>
 							<real>1</real>
 							<key>scaleY</key>
@@ -720,15 +720,15 @@
 							<integer>255</integer>
 							<key>position</key>
 							<array>
-								<real>0</real>
-								<real>0</real>
+								<real>0.0</real>
+								<real>0.0</real>
 							</array>
 							<key>rotation</key>
-							<real>0</real>
+							<real>0.0</real>
 							<key>scaleX</key>
-							<real>0.8299999833106995</real>
+							<real>0.82999998331069946</real>
 							<key>scaleY</key>
-							<real>0.8299999833106995</real>
+							<real>0.82999998331069946</real>
 							<key>string</key>
 							<string>Press Me!</string>
 							<key>tag</key>
@@ -746,13 +746,13 @@
 				<dict>
 					<key>anchorPoint</key>
 					<array>
-						<real>0</real>
-						<real>0</real>
+						<real>0.0</real>
+						<real>0.0</real>
 					</array>
 					<key>contentSize</key>
 					<array>
-						<real>0</real>
-						<real>0</real>
+						<real>0.0</real>
+						<real>0.0</real>
 					</array>
 					<key>customClass</key>
 					<string></string>
@@ -772,7 +772,7 @@
 						<real>106</real>
 					</array>
 					<key>rotation</key>
-					<real>0</real>
+					<real>0.0</real>
 					<key>scaleX</key>
 					<real>1</real>
 					<key>scaleY</key>
@@ -794,8 +794,8 @@
 			<integer>0</integer>
 			<key>anchorPoint</key>
 			<array>
-				<real>0</real>
-				<real>0</real>
+				<real>0.0</real>
+				<real>0.0</real>
 			</array>
 			<key>contentSize</key>
 			<array>
@@ -820,11 +820,11 @@
 			<integer>1</integer>
 			<key>position</key>
 			<array>
-				<real>0</real>
-				<real>0</real>
+				<real>0.0</real>
+				<real>0.0</real>
 			</array>
 			<key>rotation</key>
-			<real>0</real>
+			<real>0.0</real>
 			<key>scaleX</key>
 			<real>1</real>
 			<key>scaleY</key>

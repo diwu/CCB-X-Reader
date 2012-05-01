@@ -156,8 +156,8 @@
 		1031F13115494B5D0058F1A0 /* particle-stars.png in Resources */ = {isa = PBXBuildFile; fileRef = 1031F12415494B5D0058F1A0 /* particle-stars.png */; };
 		1031F13415495FF50058F1A0 /* CCBClassGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1031F13315495FF50058F1A0 /* CCBClassGenerator.cpp */; };
 		1031F137154963F70058F1A0 /* HelloCocosBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1031F136154963F70058F1A0 /* HelloCocosBuilder.cpp */; };
+		10A14072154F964000937027 /* example.ccb in Resources */ = {isa = PBXBuildFile; fileRef = 10A14071154F964000937027 /* example.ccb */; };
 		10ADE639154AB48700E5A31E /* markerfelt24shadow.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 10ADE638154AB48700E5A31E /* markerfelt24shadow.fnt */; };
-		10DD612B154F885C0060B8C3 /* example.ccb in Resources */ = {isa = PBXBuildFile; fileRef = 10DD612A154F885C0060B8C3 /* example.ccb */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -458,8 +458,8 @@
 		1031F13315495FF50058F1A0 /* CCBClassGenerator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CCBClassGenerator.cpp; path = Classes/CCBClassGenerator.cpp; sourceTree = "<group>"; };
 		1031F135154963F70058F1A0 /* HelloCocosBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HelloCocosBuilder.h; path = Classes/HelloCocosBuilder.h; sourceTree = "<group>"; };
 		1031F136154963F70058F1A0 /* HelloCocosBuilder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HelloCocosBuilder.cpp; path = Classes/HelloCocosBuilder.cpp; sourceTree = "<group>"; };
+		10A14071154F964000937027 /* example.ccb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = example.ccb; path = Resources/example.ccb; sourceTree = "<group>"; };
 		10ADE638154AB48700E5A31E /* markerfelt24shadow.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = markerfelt24shadow.fnt; path = Resources/markerfelt24shadow.fnt; sourceTree = "<group>"; };
-		10DD612A154F885C0060B8C3 /* example.ccb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = example.ccb; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -528,7 +528,7 @@
 		1031EF57154901E30058F1A0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				10DD612A154F885C0060B8C3 /* example.ccb */,
+				10A14071154F964000937027 /* example.ccb */,
 				10ADE638154AB48700E5A31E /* markerfelt24shadow.fnt */,
 				1031F11815494B5D0058F1A0 /* btn-test-0.png */,
 				1031F11915494B5D0058F1A0 /* btn-test-1.png */,
@@ -1157,7 +1157,7 @@
 				1031F13015494B5D0058F1A0 /* particle-snow.png in Resources */,
 				1031F13115494B5D0058F1A0 /* particle-stars.png in Resources */,
 				10ADE639154AB48700E5A31E /* markerfelt24shadow.fnt in Resources */,
-				10DD612B154F885C0060B8C3 /* example.ccb in Resources */,
+				10A14072154F964000937027 /* example.ccb in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
