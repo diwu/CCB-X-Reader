@@ -18,6 +18,9 @@ Basically, CCB-X-Reader reads and parses the **ccb** files and creates and initi
 
 YouTube Demo (running on an Android device): <http://www.youtube.com/watch?v=QgA0fkse-AA>
 
+#Known Issues
+Due to some underlying bug in the Cocos2d-X implementation, when running on an iPhone 4s device, the example code will make the screen flicker.
+
 #Contact
 Email: <diwufet@gmail.com>
 
