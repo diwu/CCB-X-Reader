@@ -9,7 +9,6 @@
 #include "AppDelegate.h"
 
 #include "cocos2d.h"
-#include "HelloWorldScene.h"
 #include "CCBReader.h"
 
 USING_NS_CC;
@@ -97,6 +96,8 @@ bool AppDelegate::applicationDidFinishLaunching()
 	// run
 	pDirector->runWithScene(pScene);
      */
+    
+    //Here we initialize a customized CCScene instance from *example.ccb* created from CocosBuilder
     CCScene *pScene = CCBReader::sceneWithNodeGraphFromFile("example.ccb");
     pDirector->runWithScene(pScene);
 
