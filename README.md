@@ -16,4 +16,11 @@ Basically, CCB-X-Reader reads and parses the **ccb** files and creates and initi
 		CCScene *pScene = CCBReader::sceneWithNodeGraphFromFile("example.ccb");
 4. C++ is not as dynamically implemented as Objective-C. For example, C++ is unable to create a class solely based on the class name string at runtime. Therefore we need a customized **CCBClassGenerator** class to handle all the Objective-C style dynamic stuff for us. The logic behind **CCBClassGenerator** is very simple. Basically all it does is string lookup. Make sure you have properly implemented the **CCBClassGenerator** class before running.
 
+YouTube Demo (running on an Android device): <http://www.youtube.com/watch?v=QgA0fkse-AA>
+
+#Contact
+Email: <diwufet@gmail.com>
+
+Blog post: <http://diwublog.com/archives/262>
+
 ![Screenshot](http://pic.yupoo.com/diwup_v/BVXXyLqY/11Z8la.jpg)
