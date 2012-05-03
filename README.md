@@ -1,9 +1,19 @@
 #CCB-X-Reader for Cocos2d-X
-This C++ class helps processing **ccb** files for your Cocos2d-X project. It's ported from the original CCBReader class of the popular **CocosBuilder** project.
+This C++ class helps processing **ccb** files for your Cocos2d-X project. It's ported from the original CCBReader class of the popular **CocosBuilder** project. Note: the newly introduced **.ccbi** format is currently not supported.
 
 Basically, CCB-X-Reader reads and parses the **ccb** files and creates and initilizes correspoding Cocos2d instances for your Cocos2d-X project. It's just like its CCBReader.m counterpart in a Cocos2d-iPhone project.
 
-#How To Use
+Once again, as of now, CCB-X-Reader only supports parsing **ccb** files. The newer and smaller **ccbi** format is currently not supported.
+
+#How to Play with the Example Project
+1. The enclosing example project is a standard Cocos2d-X project based on Cocos2d-1.0.1-x-0.13.0 beta. It was written and tested on both iPhone and Android.
+2. How to play with it: build and run.
+
+# How to Export CCB Files Using CocosBuilder
+1. If you are using CocosBuilder 1.0, there's one and only one export format, and it's **ccb**.
+2. However, if you are using CocosBuilder 1.1 or an even newer future version, the only export format is **ccbi**. But don't worry, take a look at the project file, it's actually right what we need, the **ccb** file.
+
+#How To Use CCB-X-Reader
 1. Add these two classes to your Cocos2d-X project.
 
 		CCBReader.h
@@ -19,7 +29,13 @@ Basically, CCB-X-Reader reads and parses the **ccb** files and creates and initi
 YouTube Demo (running on an Android device): <http://www.youtube.com/watch?v=QgA0fkse-AA>
 
 #Known Issues
-Due to some underlying bug in the Cocos2d-X implementation, when running on an iPhone 4s device, the example code will make the screen flicker.
+1. Due to some underlying bug in the Cocos2d-X implementation, when running on an iPhone 4s device, the example code will make the screen flicker.
+2. This project is not finished yet. If you take a close look at the implementation, you'll see things like this:
+
+		if (extraProps) {
+			// To be implemented soon...
+    	}
+As the comments indicate, those missing parts will be implemented soon. At the same time, **You are welcome to contribute.**
 
 #Contact
 Email: <diwufet@gmail.com>
